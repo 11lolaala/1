@@ -14,7 +14,7 @@ int main() {
 
 	float f1; //4 байта плавающая точка в диапазоне +/- 3.4E-38 до 3.4E+38
 	double d1; //8 байта плавающая точка в диапазоне +/- 1.7E-308 до 1.7E+308
-	long double; // >8 байт
+	long double ld1; // >8 байт
 
 	char ch1; // 1 байт -128..127 или 0..255
 	wchar_t wc1; // 2 байт 0...65 535
@@ -23,19 +23,19 @@ int main() {
 	char32_t ch32; // 2 байт 0..2^^32-1
 
 	bool b1; //True or False 1 байт
-	std::cout << "char c1 = '-123' -128...127 1 байт\n";
-	std::cout << "unsignedchar c2 = '123' 0...256 1 байт\n";
-	std::cout << "short s1 = '-24343' 2 байта -32768..32767\n";
-	std::cout << "unsigned short s2 = '12312' 2 байта 0..65536\n";
-	std::cout << "int i1 = '-444444 '4 байт -2^^31...2^^31-1\n";
-	std::cout << "unsigned int i2 = '123123' 4 байта 0..2^^32\n";
-	std::cout << "long long l1 = '-123123123' 8 байт -2^^63...2^^63 - 1\n";
-	std::cout << "unsigned long long l2 = '1123123' 8 байт 0...2^^64\n";
-	std::cout << "float f1 = '52.52232333 4 байт\n";
-	std::cout << "double d1 = '52.522333223434 8 байт\n";
-	std::cout << "long double ld1 = '52.52233322223233434 >8 байт\n";
-	std::cout << "char ch1 = 'abc 1 байт -128..127 or 0..255\n";
-	std::cout << "bool b1 = 'True' 1 байт True or False\n";
+	std::cout << "char c1 = 'A' "<< CHAR_MIN << " " << CHAR_MAX << " " << "байт:" << sizeof c1 << std::endl;
+	std::cout << "unsignedchar c2 = 'А',0.." << UCHAR_MAX<<" байт:" << sizeof c2 << std::endl;
+	std::cout << "short s1 = '-24343' " <<SHRT_MIN << " " <<SHRT_MAX<<" байт:" << sizeof s1 << std::endl;
+	std::cout << "unsigned short s2 = '12312',0.."<<SHRT_MAX<<" "<< "байт:" << sizeof s2 << std::endl;
+	std::cout << "int i1 = '-444444 ',байт:" << sizeof i1 << " " << INT_MIN << " " <<INT_MAX << std::endl;
+	std::cout << "unsigned int i2 = '123123',0.."<<UINT_MAX<< " " <<" байт:" << sizeof i2 << std::endl;
+	std::cout << "long long l1 = '-123123123', "<<LLONG_MIN<< " " << LLONG_MAX<<" "<< sizeof l1 << std::endl;
+	std::cout << "unsigned long long l2 = '1123123',0.."<<ULLONG_MAX<<" " << sizeof l2 << std::endl;
+	std::cout << "float f1 = '52.52232333', "<< FLT_MIN<< " " << FLT_MAX <<" байт:" << sizeof f1 << std::endl;
+	std::cout << "double d1 = '52.522333223434' "<<DBL_MIN<<" "<< DBL_MAX << " байт:" << sizeof d1 << std::endl;
+	std::cout << "long double ld1 = '52.52233322223233434'," <<LDBL_MIN<<" "<<LDBL_MAX<< " байт:" << sizeof ld1 << std::endl;
+	std::cout << "bool b1 = 'True', байт:" << sizeof b1 << std::endl;
+	
 	/*int i3;
 	std::cout << "Введите число x __\n";
 	std::cin >> i3;
@@ -54,15 +54,20 @@ int main() {
 	std::cin >> x;
 	std::cout << "Введите число y __\n";
 	std::cin >> y;
+	x1 = x;
+	y1 = y;
 	sum1 = x + y;
 	r1 = x - y;
 	del1 = x / y;
-	del2 = x / y;
+	del2 = x1 / y1;
 	um1 = x * y;
 	std::cout << "Сумма x и y == " << sum1 << std::endl;
 	std::cout << "Разность x и y == " << r1 << std::endl;
 	std::cout << "Деление x на y == " << del1 << std::endl;
+	std::cout << "Деление x на y (double) == " << del2 << std::endl;
 	std::cout << "Умножение x на y == " << um1 << std::endl;
 
+	
 	return 0;
+
 }
